@@ -1,0 +1,14 @@
+PyMuPDF
+Pillow
+beautifulsoup4
+Jinja2
+lxml
+markdown
+openpyxl
+pdf2image
+pdfplumber
+playwright
+pypdf
+pypdfium2
+python-docx
+reportlab

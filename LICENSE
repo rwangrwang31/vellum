@@ -1,0 +1,59 @@
+# License Boundary for Source-Available Mixed-Source Workbench
+
+This repository is a source-available mixed-source documentation and local
+tooling workbench. It is not presented as a single conventional open-source
+distribution in which every committed file has been cleared and relicensed by
+the repository contributors.
+
+## Scope Of MIT Permission
+
+Subject to the exclusions below, the MIT License text applies only to original
+material authored specifically for this repository, such as original
+repository-authored documentation, local workflow notes, generated diagrams, and
+glue material.
+
+For files that combine original repository-authored material with imported,
+adapted, user-provided, reference, or third-party material, this permission
+applies only to the original repository-authored portions. It does not override
+or replace any rights retained by the original source of the non-original
+portions.
+
+## Material Not Covered By This Grant
+
+This license grant does not apply to:
+
+- Imported, adapted, or user-provided skill documents, examples, scripts,
+  templates, or binary assets that originated outside this repository and may
+  retain separate rights.
+- Third-party dependencies declared in package manifests or required by the
+  scripts.
+- Names, logos, trademarks, service marks, or platform identifiers belonging to
+  OpenAI, Anthropic, Microsoft, or any other third party.
+- Local runtime state and generated outputs that are intentionally not committed
+  to this repository.
+
+If a file or directory states a different license or provenance boundary, that
+more specific notice controls for that material.
+
+MIT License text for original repository-authored material only, subject to the
+boundary above:
+
+Copyright (c) 2026 Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

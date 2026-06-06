@@ -1,0 +1,39 @@
+# Notices
+
+This repository is an independent, unofficial, source-available mixed-source
+documentation and tooling workbench. It is not affiliated with, endorsed by, or
+distributed by OpenAI, Anthropic, or any other platform provider named in the
+documentation.
+
+## Important Redistribution Warning
+
+The repository is not a single fully cleared open-source distribution of all
+committed contents. MIT-style permission from this repository applies only to
+original repository-authored material as described in `LICENSE`. Imported,
+adapted, user-provided, reference, and third-party material may retain separate
+rights.
+
+## Mixed Source Boundary
+
+The repository contains a mixture of:
+
+- Local workflow documentation and generated diagrams authored for this
+  repository.
+- Adapted PDF/DOCX workbench files under `skills/`.
+- Third-party package dependency declarations, such as `pdf-lib` and
+  `pdfjs-dist`, which are governed by their own upstream licenses.
+
+## Local Runtime State
+
+The repository intentionally excludes live runtime state such as private inputs,
+generated PDFs, QA render images, the live artifact registry, local `.env`
+files, `node_modules/`, and the external local PDF production stack. The only
+committed output-like file is `outputs/artifacts/registry.example.jsonl`, which
+documents the registry row shape.
+
+## Trademarks And Platform Names
+
+Names such as GPT, GPT-5.5, OpenAI, ChatGPT, Anthropic, Claude, Microsoft,
+LibreOffice, Pandoc, Poppler, Ghostscript, MiKTeX, and qpdf may be trademarks or
+service marks of their respective owners. They are used descriptively to explain
+local workflow compatibility and replacement mappings.

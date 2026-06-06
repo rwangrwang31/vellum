@@ -1,0 +1,16 @@
+.env
+.env.*
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.publication-check/
+outputs/*
+!outputs/artifacts/
+outputs/artifacts/*
+!outputs/artifacts/registry.example.jsonl
+data/
+.DS_Store
+Thumbs.db

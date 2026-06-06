@@ -1,0 +1,832 @@
+[
+  {
+    "file": "scripts/batch_pdf.py",
+    "lines": 162,
+    "bytes": 4848,
+    "doc_first": "Run common PDF operations over many files (batch helper).",
+    "functions": [
+      "_match_paths",
+      "_safe_stem",
+      "_run",
+      "cmd_render",
+      "cmd_inspect",
+      "cmd_normalize",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "json",
+      "subprocess",
+      "sys",
+      "pathlib import Path",
+      "typing import List"
+    ],
+    "arg_count": 8,
+    "args": [
+      "--in_glob",
+      "--out_root",
+      "--dpi",
+      "--engine",
+      "--in_glob",
+      "--out_root",
+      "--in_glob",
+      "--out_root"
+    ],
+    "subcommands": [
+      "render",
+      "inspect",
+      "normalize"
+    ]
+  },
+  {
+    "file": "scripts/box_picker_html.py",
+    "lines": 239,
+    "bytes": 7972,
+    "doc_first": "Generate an interactive HTML \"box picker\" for precise placement on a PDF page.",
+    "functions": [
+      "_render_first_page",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "base64",
+      "pathlib import Path",
+      "pypdf import PdfReader",
+      "subprocess"
+    ],
+    "arg_count": 5,
+    "args": [
+      "input_pdf",
+      "--page",
+      "--dpi",
+      "--out",
+      "--tmp_dir"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/compare_renders.py",
+    "lines": 161,
+    "bytes": 5276,
+    "doc_first": "Visual diff two PDFs by rendering pages and computing pixel diffs.",
+    "functions": [
+      "_render",
+      "_sorted_pages",
+      "_diff_images",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "json",
+      "subprocess",
+      "pathlib import Path",
+      "typing import Any,Dict,List",
+      "PIL import Image,ImageChops"
+    ],
+    "arg_count": 6,
+    "args": [
+      "pdf_a",
+      "pdf_b",
+      "--out_dir",
+      "--dpi",
+      "--engine",
+      "--save_renders"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/create_montage.py",
+    "lines": 116,
+    "bytes": 3482,
+    "doc_first": "Create a simple contact-sheet montage from a list of images.",
+    "functions": [
+      "_collect_paths",
+      "make_montage",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "glob",
+      "pathlib import Path",
+      "typing import List",
+      "PIL import Image"
+    ],
+    "arg_count": 5,
+    "args": [
+      "inputs",
+      "--out",
+      "--cols",
+      "--tile_max_w",
+      "--margin"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/edit_smoketest.py",
+    "lines": 85,
+    "bytes": 2061,
+    "doc_first": "Smoke test for common edit operations (focus: paginate).",
+    "functions": [
+      "_make_two_page_pdf",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "subprocess",
+      "pathlib import Path",
+      "reportlab.lib.pagesizes import letter",
+      "reportlab.pdfgen import canvas"
+    ],
+    "arg_count": 2,
+    "args": [
+      "--workdir",
+      "--dpi"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/forms_smoketest.py",
+    "lines": 119,
+    "bytes": 2992,
+    "doc_first": "End-to-end smoke test for forms filling correctness.",
+    "functions": [
+      "_make_form_pdf",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "json",
+      "subprocess",
+      "pathlib import Path",
+      "reportlab.lib.pagesizes import letter",
+      "reportlab.pdfgen import canvas"
+    ],
+    "arg_count": 2,
+    "args": [
+      "--workdir",
+      "--dpi"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/html_to_pdf.py",
+    "lines": 72,
+    "bytes": 2156,
+    "doc_first": "Render HTML to PDF using Playwright (Chromium).",
+    "functions": [
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "pathlib import Path",
+      "playwright.sync_api import sync_playwright"
+    ],
+    "arg_count": 6,
+    "args": [
+      "input_html",
+      "--output",
+      "--format",
+      "--scale",
+      "--landscape",
+      "--timeout_ms"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/latex_to_pdf.py",
+    "lines": 96,
+    "bytes": 3134,
+    "doc_first": "Compile LaTeX to PDF using latexmk.",
+    "functions": [
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "subprocess",
+      "pathlib import Path",
+      "shutil",
+      "tempfile",
+      "typing import Optional"
+    ],
+    "arg_count": 6,
+    "args": [
+      "tex",
+      "--out_dir",
+      "-o",
+      "--engine",
+      "--clean",
+      "--keep_build"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/lo_convert_to_pdf.py",
+    "lines": 80,
+    "bytes": 2441,
+    "doc_first": "Convert an Office document (DOCX/PPTX/ODT/...) to PDF using LibreOffice.",
+    "functions": [
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "subprocess",
+      "pathlib import Path",
+      "pypdf import PdfReader"
+    ],
+    "arg_count": 2,
+    "args": [
+      "input_file",
+      "--out_dir"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/make_watermark_pdf.py",
+    "lines": 74,
+    "bytes": 2262,
+    "doc_first": "Generate a 1-page watermark PDF (text or diagonal stamp) for use with pdf_edit.py watermark.",
+    "functions": [
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "pathlib import Path",
+      "reportlab.lib.pagesizes import letter",
+      "reportlab.lib.units import inch",
+      "reportlab.pdfgen import canvas",
+      "reportlab.lib.pagesizes import A4"
+    ],
+    "arg_count": 9,
+    "args": [
+      "--out",
+      "--text",
+      "--pagesize",
+      "--font",
+      "--font_size",
+      "--angle",
+      "--opacity",
+      "--center_x",
+      "--center_y"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/md_to_pdf.py",
+    "lines": 65,
+    "bytes": 1805,
+    "doc_first": "Convert Markdown to PDF using Pandoc.",
+    "functions": [
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "subprocess",
+      "pathlib import Path",
+      "shutil"
+    ],
+    "arg_count": 6,
+    "args": [
+      "input_md",
+      "--output",
+      "--pdf_engine",
+      "--template",
+      "--resource_path",
+      "--extra"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/ocr_pdf.py",
+    "lines": 209,
+    "bytes": 6558,
+    "doc_first": "OCR a scanned PDF into a searchable PDF.",
+    "functions": [
+      "_which",
+      "_has_meaningful_text",
+      "_run_ocrmypdf",
+      "_page_num_from_name",
+      "_run_tesseract_fallback",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "re",
+      "shutil",
+      "subprocess",
+      "tempfile",
+      "pathlib import Path",
+      "typing import List,Optional",
+      "fitz",
+      "pypdf import PdfReader,PdfWriter"
+    ],
+    "arg_count": 11,
+    "args": [
+      "input_pdf",
+      "-o",
+      "--lang",
+      "--force",
+      "--fallback",
+      "--deskew",
+      "--deskew",
+      "--jobs",
+      "--optimize",
+      "--dpi",
+      "--keep_tmp"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/pdf_edit.py",
+    "lines": 566,
+    "bytes": 19814,
+    "doc_first": "Edit/manipulate PDFs.",
+    "functions": [
+      "_parse_pages",
+      "_position_to_xy",
+      "_writer_from_reader",
+      "cmd_merge",
+      "cmd_split",
+      "cmd_select",
+      "cmd_extract",
+      "cmd_rotate",
+      "cmd_crop",
+      "cmd_watermark",
+      "_make_page_number_overlay",
+      "cmd_paginate",
+      "cmd_encrypt",
+      "cmd_decrypt",
+      "cmd_optimize",
+      "cmd_repair",
+      "cmd_fill_form",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "re",
+      "subprocess",
+      "pathlib import Path",
+      "typing import Dict,Iterable,List,Optional,Sequence,Tuple",
+      "pypdf import PdfReader,PdfWriter",
+      "pypdf.generic import BooleanObject,NameObject,RectangleObject",
+      "io import BytesIO",
+      "reportlab.pdfgen import canvas",
+      "fitz",
+      "fitz",
+      "json",
+      "io import BytesIO"
+    ],
+    "arg_count": 51,
+    "args": [
+      "inputs",
+      "-o",
+      "input_pdf",
+      "--out_dir",
+      "input_pdf",
+      "--pages",
+      "-o",
+      "input_pdf",
+      "--ranges",
+      "--out_dir",
+      "input_pdf",
+      "--angle",
+      "--pages",
+      "-o",
+      "input_pdf",
+      "--inset",
+      "--box",
+      "--pages",
+      "-o",
+      "input_pdf",
+      "--watermark",
+      "-o",
+      "input_pdf",
+      "-o",
+      "--start",
+      "--format",
+      "--font_size",
+      "--margin",
+      "--position",
+      "--x",
+      "--y",
+      "input_pdf",
+      "-o",
+      "--user_password",
+      "--owner_password",
+      "--algorithm",
+      "input_pdf",
+      "-o",
+      "--password",
+      "input_pdf",
+      "-o",
+      "--recover",
+      "--optimize_streams",
+      "--compress_streams",
+      "--linearize",
+      "input_pdf",
+      "-o",
+      "input_pdf",
+      "data",
+      "-o",
+      "--need_appearances"
+    ],
+    "subcommands": [
+      "merge",
+      "split",
+      "select",
+      "extract",
+      "rotate",
+      "crop",
+      "watermark",
+      "paginate",
+      "encrypt",
+      "decrypt",
+      "optimize",
+      "repair",
+      "fill-form"
+    ]
+  },
+  {
+    "file": "scripts/pdf_extract.py",
+    "lines": 628,
+    "bytes": 22698,
+    "doc_first": "Extract text/layout/tables/images/forms/attachments from PDFs.",
+    "functions": [
+      "_parse_page_ranges",
+      "_iter_pages",
+      "_ensure_dir",
+      "_read_pdf_text_pdftotext",
+      "cmd_text",
+      "cmd_words",
+      "cmd_chars",
+      "cmd_tables",
+      "cmd_images",
+      "cmd_attachments",
+      "cmd_annotations",
+      "cmd_forms",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "csv",
+      "json",
+      "os",
+      "re",
+      "subprocess",
+      "pathlib import Path",
+      "typing import Any,Dict,Iterable,List,Optional,Sequence,Tuple",
+      "pdfplumber",
+      "pdfplumber",
+      "fitz",
+      "pypdf import PdfReader",
+      "pypdf import PdfReader",
+      "pypdf import PdfReader",
+      "pypdf.generic import DictionaryObject,StreamObject",
+      "pdfplumber",
+      "pypdf import PdfReader",
+      "pypdf.generic import DictionaryObject,StreamObject",
+      "fitz"
+    ],
+    "arg_count": 30,
+    "args": [
+      "input_pdf",
+      "--json",
+      "--password",
+      "input_pdf",
+      "--method",
+      "--pages",
+      "--out",
+      "input_pdf",
+      "--method",
+      "--pages",
+      "--out",
+      "input_pdf",
+      "--pages",
+      "--out",
+      "input_pdf",
+      "--pages",
+      "--out_dir",
+      "--format",
+      "input_pdf",
+      "--pages",
+      "--out_dir",
+      "--method",
+      "input_pdf",
+      "--out_dir",
+      "input_pdf",
+      "--pages",
+      "--out",
+      "input_pdf",
+      "--out",
+      "--include_widgets"
+    ],
+    "subcommands": [
+      "info",
+      "text",
+      "words",
+      "chars",
+      "tables",
+      "images",
+      "attachments",
+      "annotations",
+      "forms"
+    ]
+  },
+  {
+    "file": "scripts/pdf_inspect.py",
+    "lines": 214,
+    "bytes": 5954,
+    "doc_first": "Inspect a PDF and print a useful summary.",
+    "functions": [
+      "_run_cli",
+      "_outline_count",
+      "_unique_page_sizes",
+      "inspect_pdf",
+      "_print_human",
+      "main"
+    ],
+    "classes": [
+      "PdfSummary"
+    ],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "json",
+      "subprocess",
+      "sys",
+      "dataclasses import dataclass,asdict",
+      "pathlib import Path",
+      "typing import Any,Dict,List,Optional,Tuple",
+      "pypdf import PdfReader"
+    ],
+    "arg_count": 3,
+    "args": [
+      "input_pdf",
+      "--password",
+      "--json"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/pdf_preflight.py",
+    "lines": 214,
+    "bytes": 6441,
+    "doc_first": "Preflight / triage a PDF and emit actionable warnings.",
+    "functions": [
+      "_run",
+      "_pdffonts_warnings",
+      "_xfa_present",
+      "_likely_scanned",
+      "preflight",
+      "main"
+    ],
+    "classes": [
+      "PreflightResult"
+    ],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "json",
+      "subprocess",
+      "sys",
+      "dataclasses import dataclass,asdict",
+      "pathlib import Path",
+      "typing import Any,Dict,List,Optional",
+      "fitz",
+      "pypdf import PdfReader"
+    ],
+    "arg_count": 3,
+    "args": [
+      "input_pdf",
+      "--password",
+      "--json"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/pdf_redact.py",
+    "lines": 334,
+    "bytes": 11746,
+    "doc_first": "Redact content from PDFs (real redaction, not just drawing black boxes).",
+    "functions": [
+      "parse_page_range",
+      "_load_text_list",
+      "_sorted_words",
+      "_phrase_matches",
+      "_find_rects_by_words",
+      "_add_redactions_for_text",
+      "_load_boxes",
+      "_add_redactions_for_boxes",
+      "_apply_and_save",
+      "_parse_fill",
+      "main"
+    ],
+    "classes": [
+      "BoxSpec"
+    ],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "json",
+      "re",
+      "sys",
+      "dataclasses import dataclass",
+      "pathlib import Path",
+      "typing import Any,Dict,Iterable,List,Optional,Sequence,Tuple",
+      "fitz"
+    ],
+    "arg_count": 17,
+    "args": [
+      "input_pdf",
+      "output_pdf",
+      "--text",
+      "--text_file",
+      "--pages",
+      "--ignore_case",
+      "--whole_word",
+      "--fill",
+      "--image_mode",
+      "--password",
+      "input_pdf",
+      "output_pdf",
+      "--boxes_json",
+      "--pages",
+      "--fill",
+      "--image_mode",
+      "--password"
+    ],
+    "subcommands": [
+      "text",
+      "boxes"
+    ]
+  },
+  {
+    "file": "scripts/place_text_by_boxes.py",
+    "lines": 342,
+    "bytes": 11064,
+    "doc_first": "Stamp text / checkbox marks into precise rectangles (for non-fillable forms).",
+    "functions": [
+      "_load_json",
+      "_ensure_pages_spec",
+      "_rect_ok",
+      "_overlap",
+      "_fit_single_line",
+      "_wrap_lines",
+      "_draw_text_in_rect",
+      "_draw_check",
+      "_make_overlay_pdf",
+      "_validate_items",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "json",
+      "math",
+      "tempfile",
+      "dataclasses import dataclass",
+      "io import BytesIO",
+      "pathlib import Path",
+      "typing import Any,Dict,List,Optional,Tuple",
+      "pypdf import PdfReader,PdfWriter",
+      "reportlab.lib import colors",
+      "reportlab.pdfgen import canvas",
+      "reportlab.pdfbase.pdfmetrics import stringWidth"
+    ],
+    "arg_count": 6,
+    "args": [
+      "input_pdf",
+      "spec_json",
+      "values_json",
+      "--out",
+      "--preview_pdf",
+      "--draw_guides"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/redact_smoketest.py",
+    "lines": 93,
+    "bytes": 3034,
+    "doc_first": "Smoke test for true redaction (PyMuPDF).",
+    "functions": [
+      "_run",
+      "_write_input_pdf",
+      "_pixels_changed",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "subprocess",
+      "pathlib import Path",
+      "PIL import Image,ImageChops",
+      "reportlab.pdfgen import canvas",
+      "reportlab.lib.pagesizes import letter",
+      "reportlab.lib.units import inch"
+    ],
+    "arg_count": 2,
+    "args": [
+      "--workdir",
+      "--dpi"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/render_pdf.py",
+    "lines": 201,
+    "bytes": 5758,
+    "doc_first": "Render PDF pages to images for visual inspection.",
+    "functions": [
+      "_clear_existing",
+      "_parse_pages",
+      "_pdftoppm_render",
+      "_pdfium_render",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "os",
+      "re",
+      "shutil",
+      "subprocess",
+      "pathlib import Path",
+      "typing import Iterable,List,Optional,Tuple",
+      "PIL import Image",
+      "pypdfium2"
+    ],
+    "arg_count": 7,
+    "args": [
+      "input_pdf",
+      "--out_dir",
+      "--prefix",
+      "--dpi",
+      "--fmt",
+      "--pages",
+      "--engine"
+    ],
+    "subcommands": []
+  },
+  {
+    "file": "scripts/renderer_parity.py",
+    "lines": 142,
+    "bytes": 4526,
+    "doc_first": "Render the same PDF with two engines and diff the results.",
+    "functions": [
+      "_render",
+      "_sorted_pages",
+      "_diff_images",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "json",
+      "subprocess",
+      "pathlib import Path",
+      "typing import Any,Dict,List",
+      "PIL import Image,ImageChops"
+    ],
+    "arg_count": 5,
+    "args": [
+      "input_pdf",
+      "--out_dir",
+      "--dpi",
+      "--engine_a",
+      "--engine_b"
+    ],
+    "subcommands": []
+  }
+]

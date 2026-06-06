@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+<title id="title">Hand-drawn local PDF workflow, clean three-row layout</title>
+<desc id="desc">Black-and-white Excalidraw-style workflow diagram with handwritten labels, three rows, bordered cells, centered drawings, and separated labels.</desc>
+<defs><marker id="arrow" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto"><path d="M 0 0 L 16 8 L 0 16 z" fill="#111"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<path d="M 35.3 37.1 L 1882.4 35.1 L 1883.6 1045.6 L 35.4 1044.4 L 34.4 34.7" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 39.8 34.2 L 1886.9 37.8 L 1881.0 1045.8 L 35.9 1039.2 L 37.7 33.8" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="960" y="92" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="58" fill="#111111">Local PDF Workflow</text>
+<text x="960" y="140" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="24" fill="#111111">three clean rows: centered drawings, separated labels, handwritten text</text>
+<path d="M 130.4 191.0 L 780.6 191.3 L 780.9 423.0 L 131.6 425.0 L 129.7 188.4" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 131.6 186.3 L 780.4 193.1 L 776.5 429.1 L 132.9 422.5 L 131.8 186.6" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="343.0" cy="248.0" r="9.6" fill="none" stroke="#111111" stroke-width="3"/>
+<path d="M 344.4 257.6 L 342.5 297.4" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 342.0 271.3 L 362.5 280.8" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 342.5 271.6 L 321.9 281.2" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 343.9 296.4 L 326.0 324.0" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 341.7 294.9 L 360.7 322.7" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 432.7 236.8 L 480.5 239.5 L 479.2 296.8 L 432.6 298.6 L 432.9 237.5" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 435.6 235.1 L 480.4 238.8 L 474.6 302.5 L 434.4 293.4 L 435.0 234.3" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 440.5 258.0 L 468.7 257.2" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 441.1 271.3 L 468.7 270.2" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 490.4 248.1 L 537.4 246.5 L 538.4 307.9 L 490.7 307.3 L 488.1 249.0" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 492.8 245.2 L 539.3 250.3 L 532.2 308.5 L 489.9 302.3 L 493.3 243.8" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 499.0 267.3 L 527.8 267.7" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 498.8 278.8 L 528.1 279.7" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 547.4 239.7 L 595.8 238.6 L 594.1 296.6 L 545.7 295.9 L 545.5 239.0" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 549.0 237.0 L 595.7 239.0 L 593.4 300.2 L 546.8 295.4 L 551.1 238.0" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 557.3 257.9 L 585.4 257.4" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 556.4 270.4 L 584.7 271.1" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="455.0" y="360" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="27" fill="#111111">1. Local input</text>
+<text x="455.0" y="397" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="18" fill="#111111">PDF / DOCX / images</text>
+<path d="M 1141.1 189.5 L 1791.3 189.7 L 1788.7 424.0 L 1138.5 425.8 L 1139.2 188.2" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1141.3 187.9 L 1793.5 190.9 L 1788.3 429.2 L 1139.3 421.2 L 1144.6 189.0" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1353.0" cy="248.0" r="9.6" fill="none" stroke="#111111" stroke-width="3"/>
+<path d="M 1353.4 256.2 L 1352.2 296.7" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1351.9 269.3 L 1372.7 281.0" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1352.1 271.1 L 1330.7 281.6" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1354.3 295.2 L 1334.7 323.8" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1352.1 296.0 L 1370.0 322.7" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1439.0 228.2 L 1574.6 229.7 L 1571.3 304.4 L 1438.1 304.3 L 1439.8 228.8" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1442.0 228.0 L 1574.0 232.5 L 1569.4 309.8 L 1440.2 303.6 L 1443.8 229.0" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1459.6 264.6 L 1553.6 263.9" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1619.0" cy="268" r="24" fill="none" stroke="#111111" stroke-width="3"/>
+<circle cx="1619.0" cy="268" r="8" fill="none" stroke="#111111" stroke-width="3"/>
+<text x="1465.0" y="360" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="27" fill="#111111">2. Skill scripts</text>
+<text x="1465.0" y="397" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="18" fill="#111111">render / extract / convert</text>
+<path d="M 1139.4 487.0 L 1789.3 484.8 L 1789.2 718.3 L 1140.2 719.1 L 1138.7 486.6" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1142.2 483.0 L 1793.9 488.8 L 1788.6 723.8 L 1140.4 716.5 L 1144.2 482.7" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1353.0" cy="543.0" r="9.6" fill="none" stroke="#111111" stroke-width="3"/>
+<path d="M 1354.0 551.9 L 1353.5 592.3" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1352.9 563.8 L 1381.2 551.1" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1353.6 564.8 L 1331.1 575.6" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1353.9 591.0 L 1333.6 617.0" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1352.0 591.4 L 1370.2 617.6" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1439.0 565 Q 1521.0 517 1603.0 565" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1439.0 565 Q 1521.0 613 1603.0 565" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1521.0" cy="565" r="20" fill="none" stroke="#111111" stroke-width="3"/>
+<circle cx="1521.0" cy="565" r="7" fill="#111111"/>
+<text x="1465.0" y="655" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="27" fill="#111111">3. GPT-5.5 vision</text>
+<text x="1465.0" y="692" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="18" fill="#111111">read rendered pages</text>
+<path d="M 131.5 485.5 L 781.3 484.8 L 779.9 718.4 L 128.5 720.0 L 130.9 483.1" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 131.7 483.5 L 781.0 486.3 L 777.4 723.8 L 129.2 715.3 L 132.8 481.9" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="343.0" cy="543.0" r="9.6" fill="none" stroke="#111111" stroke-width="3"/>
+<path d="M 341.9 552.1 L 342.9 591.4" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 344.4 566.6 L 368.0 580.3" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 341.8 564.4 L 320.5 575.7" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 343.9 591.2 L 323.7 617.2" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 343.4 590.6 L 360.6 618.6" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 433.6 529.6 L 490.5 530.6 L 490.5 597.9 L 434.0 598.4 L 433.8 532.1" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 440.1 526.7 L 493.6 531.0 L 485.5 601.7 L 434.9 598.1 L 438.0 529.9" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 446.2 554.5 L 480.2 554.5" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 446.7 567.8 L 480.5 567.8" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 504.1 528.8 L 560.8 529.9 L 560.3 597.8 L 505.9 601.5 L 504.7 531.0" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 509.1 530.3 L 562.1 534.1 L 556.4 603.5 L 505.9 596.1 L 510.3 529.6" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 516.3 554.3 L 549.1 554.3" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 515.5 568.7 L 549.6 568.1" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 413.8 598.3 L 477.4 553.5" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="455.0" y="655" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="27" fill="#111111">4. Source files</text>
+<text x="455.0" y="692" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="18" fill="#111111">Markdown / HTML / LaTeX</text>
+<path d="M 131.5 781.1 L 779.4 778.7 L 780.6 1015.0 L 129.5 1016.7 L 131.5 780.6" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 133.2 778.4 L 783.6 781.7 L 778.7 1018.6 L 129.3 1012.5 L 132.8 777.2" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="343.0" cy="838.0" r="9.6" fill="none" stroke="#111111" stroke-width="3"/>
+<path d="M 344.5 846.2 L 341.7 887.4" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 342.9 861.2 L 364.3 872.0" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 341.5 858.7 L 322.6 871.5" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 343.0 884.8 L 323.6 912.3" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 341.9 886.7 L 360.5 912.0" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 426.5 825.9 L 480.1 828.2 L 480.1 894.4 L 428.3 893.7 L 426.5 828.1" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 433.1 822.4 L 484.0 828.0 L 480.4 895.5 L 428.8 891.5 L 429.9 822.4" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 439.8 849.2 L 471.5 849.6" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 438.7 863.0 L 470.5 862.8" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="455.0" y="864.9" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="14" fill="#111111">PDF</text>
+<path d="M 506.9 835.3 L 539.8 834.6 L 540.8 874.8 L 507.3 873.4 L 509.5 833.7" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 512.7 830.3 L 543.5 834.4 L 537.1 877.5 L 508.8 871.1 L 513.2 833.3" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 514.3 847.7 L 535.7 847.8" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 514.9 856.6 L 535.1 855.1" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 554.1 839.9 L 586.3 843.1 L 586.5 880.8 L 556.2 881.4 L 555.9 842.0" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 557.5 840.7 L 588.8 843.5 L 586.0 886.7 L 555.7 880.1 L 556.9 841.4" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 561.1 856.1 L 581.7 854.8" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 560.7 864.3 L 580.9 864.7" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 488.9 890.3 L 520.5 890.8" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="455.0" y="950" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="27" fill="#111111">5. Generate + QA</text>
+<text x="455.0" y="987" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="18" fill="#111111">PDF -&gt; PNG inspection loop</text>
+<path d="M 1138.0 779.5 L 1789.1 780.8 L 1791.1 1013.1 L 1138.9 1014.6 L 1141.5 781.8" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1142.7 778.2 L 1792.4 781.1 L 1785.2 1017.9 L 1142.6 1010.6 L 1144.3 778.7" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1353.0" cy="838.0" r="9.6" fill="none" stroke="#111111" stroke-width="3"/>
+<path d="M 1352.8 847.1 L 1351.8 886.7" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1353.6 860.9 L 1373.6 870.0" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1353.2 860.5 L 1332.3 871.3" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1354.2 887.4 L 1335.2 914.3" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 1351.9 887.2 L 1372.2 912.1" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="1483.0" cy="858" r="34" fill="none" stroke="#111111" stroke-width="3"/>
+<path d="M 1462.2 857.8 L 1479.8 878.1 L 1510.0 834.1" fill="none" stroke="#111111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1570.0" y="868" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="24" fill="#111111">ID</text>
+<text x="1465.0" y="950" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="27" fill="#111111">6. Registry</text>
+<text x="1465.0" y="987" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="18" fill="#111111">stable local artifact ID</text>
+<path d="M 778.1 308.2 L 981.8 308.0 L 1138.6 309.3" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 1791.8 423.3 L 1838.7 455.8 L 1839.5 484.0 L 1790.6 486.1" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 1138.9 601.5 L 978.0 605.0 L 780.2 603.5" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 129.6 718.3 L 78.0 748.7 L 79.7 780.9 L 131.9 780.8" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 778.5 897.2 L 979.1 897.6 L 1140.4 896.4" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+</svg>

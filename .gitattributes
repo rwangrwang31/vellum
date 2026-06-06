@@ -1,0 +1,17 @@
+* text=auto
+
+*.md text eol=lf
+*.txt text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.sh text eol=lf
+
+*.pptx binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.docx binary
+*.xlsx binary
