@@ -28,6 +28,7 @@ scripts/artifact_registry.py
 scripts/batch_pdf.py
 scripts/box_picker_html.py
 scripts/compare_renders.py
+scripts/crop_rendered_pages.py
 scripts/create_montage.py
 scripts/edit_smoketest.py
 scripts/forms_smoketest.py

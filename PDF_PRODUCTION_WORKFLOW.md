@@ -265,13 +265,41 @@ Create a contact sheet for whole-document triage:
 python .\skills\pdfs\scripts\create_montage.py .\outputs\task\qa-pages --out .\outputs\task\qa-contact-sheet.png --cols 4 --tile_max_w 320
 ```
 
-For a layout-sensitive page, create a focused crop from the final rendered
-page. Adjust the box to the figure, table, formula block, caption, or changed
-region being checked:
+For layout-sensitive pages, create focused crops from the final rendered pages.
+Prefer a structured crop spec so the crop boxes and the visual claim being
+verified are repeatable:
 
 ```powershell
-python -c "from PIL import Image; im=Image.open(r'.\outputs\task\qa-pages\report-page-2.png'); im.crop((120,180,980,720)).save(r'.\outputs\task\qa-pages\figure-2-2-crop.png')"
+@'
+{
+  "task": "task",
+  "crops": [
+    {
+      "name": "figure-2-2",
+      "source": "outputs/task/qa-pages/report-page-2.png",
+      "box": [120, 180, 980, 720],
+      "output": "outputs/task/qa-pages/figure-2-2-crop.png",
+      "verifies": "caption, labels, and plotted geometry do not overlap",
+      "checks": [
+        "caption is fully visible and separated from the frame",
+        "labels do not touch plotted lines, markers, arrows, axes, or formulas",
+        "plotted geometry satisfies the stated invariant"
+      ],
+      "reject_if": [
+        "any label touches or crosses a diagram element",
+        "any formula or label is clipped by the crop or page frame",
+        "the crop omits a high-risk edge needed to prove clearance"
+      ]
+    }
+  ]
+}
+'@ | Set-Content -Encoding UTF8 .\outputs\task\focused-crops.json
+
+python .\skills\pdfs\scripts\crop_rendered_pages.py .\outputs\task\focused-crops.json --base_dir . --strict --json
 ```
+
+One-off PIL crop commands are still acceptable for exploration, but final QA
+evidence for diagram-heavy or formula-heavy PDFs should use a saved crop spec.
 
 Register final PDF:
 
@@ -304,7 +332,13 @@ Before reporting a generated PDF complete:
    overlaps.
 4. Identify high-risk elements and create focused crop evidence for each one
    that could fail locally while looking acceptable in a contact sheet.
-5. Record the evidence in `qa-manifest.json` or an equivalent task note before
+5. For each focused crop, record concrete `checks` and `reject_if` conditions.
+   The `verifies` sentence alone is not enough for final QA; it must be backed
+   by itemized visual assertions such as label clearance, crop edge clearance,
+   point-on-curve alignment, and formula/frame separation.
+6. For generated math or physics diagrams, inspect and record geometry-specific
+   invariants, not just whether the page looks generally tidy.
+7. Record the evidence in `qa-manifest.json` or an equivalent task note before
    registering the PDF as final.
 
 High-risk elements include:
@@ -315,13 +349,28 @@ High-risk elements include:
 - Inserted raster images, generated covers, and pages with exact size claims.
 - Any page changed during the final fix iteration.
 
+For math, physics, engineering, and other generated diagrams, preserve geometry
+invariants in source where practical:
+
+- Points that should lie on curves must be derived from the same function,
+  named path coordinate, or shared calculation as the curve.
+- Vectors that represent tangents, normals, radii, or forces should be anchored
+  to named coordinates and calculated directions instead of visual guesses.
+- Labels should be offset from the diagram element they describe and then
+  checked in a focused crop for line, arrow, marker, and frame overlap.
+- QA notes should state the invariant being verified, for example "particle
+  point lies on the plotted curve" or "normal vector is separated from the
+  velocity arrow and labels".
+
 The QA manifest should record at least:
 
 - final PDF path and SHA-256;
 - `pdfinfo` page count and rendered PNG count;
 - render directory and render command;
 - contact sheet path;
-- focused crop paths with page numbers and what each crop verifies;
+- focused crop spec path when structured crops were used;
+- focused crop paths with page numbers, what each crop verifies, the itemized
+  checks performed, and the reject conditions that would have failed the crop;
 - manual inspection result for clipping, overlaps, missing glyphs, broken
   images, and bad pagination.
 

@@ -74,6 +74,7 @@ Use `docs/recovered-script-heads.md` as source-context for the recovered script 
 - `batch_pdf.py inspect`: implemented; write one JSON inspection file per PDF.
 - `batch_pdf.py normalize`: implemented; normalize/repair many PDFs without overwriting inputs.
 - `create_montage.py`: implemented; generate quick visual spot-check montages.
+- `crop_rendered_pages.py`: implemented; generate repeatable focused QA crops from rendered page PNGs using a JSON crop spec.
 
 ## Phase 8: Smoke tests
 

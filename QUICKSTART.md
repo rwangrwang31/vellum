@@ -157,16 +157,21 @@ python .\skills\pdfs\scripts\create_montage.py .\outputs\task\qa-pages --out .\o
 
 For dense diagrams, formulas, tables, captions, generated images, or pages
 changed late in the iteration, also save focused crop evidence from the final
-rendered page:
+rendered pages. Prefer a saved crop spec so the checked region and visual claim
+are repeatable:
 
 ```powershell
-python -c "from PIL import Image; im=Image.open(r'.\outputs\task\qa-pages\report-page-2.png'); im.crop((120,180,980,720)).save(r'.\outputs\task\qa-pages\figure-2-2-crop.png')"
+python .\skills\pdfs\scripts\crop_rendered_pages.py .\outputs\task\focused-crops.json --base_dir . --strict --json
 ```
 
 Inspect the rendered PNGs, contact sheet, and focused crops before treating the
 PDF as complete. Record the final PDF hash, page count, rendered PNG count,
-contact sheet path, focused crop paths, and manual inspection result in
-`qa-manifest.json` or an equivalent task note.
+contact sheet path, focused crop spec path, focused crop paths, and manual
+inspection result in `qa-manifest.json` or an equivalent task note. For
+math/physics diagrams, record the geometry invariant checked by the crop, such
+as point-on-curve alignment, tangent/normal direction, and label clearance.
+In final QA, each focused crop spec should include itemized `checks` and
+`reject_if` conditions so the crop cannot pass on a vague "looks fine" judgment.
 
 ## 8. Register A Final Artifact
 

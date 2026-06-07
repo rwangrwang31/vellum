@@ -101,6 +101,41 @@
     "subcommands": []
   },
   {
+    "file": "scripts/crop_rendered_pages.py",
+    "lines": 207,
+    "bytes": 7397,
+    "doc_first": "Create focused QA crops from rendered PDF page images.",
+    "functions": [
+      "_read_spec",
+      "_resolve_path",
+      "_parse_box",
+      "_validate_box_within_image",
+      "_parse_string_list",
+      "_crop_record",
+      "crop_from_spec",
+      "_print_text_summary",
+      "main"
+    ],
+    "classes": [],
+    "imports": [
+      "__future__ import annotations",
+      "argparse",
+      "json",
+      "pathlib import Path",
+      "typing import Any,Dict,List,Sequence,Tuple",
+      "PIL import Image"
+    ],
+    "arg_count": 5,
+    "args": [
+      "spec",
+      "--base_dir",
+      "--dry_run",
+      "--strict",
+      "--json"
+    ],
+    "subcommands": []
+  },
+  {
     "file": "scripts/create_montage.py",
     "lines": 116,
     "bytes": 3482,
