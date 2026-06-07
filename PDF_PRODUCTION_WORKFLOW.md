@@ -8,13 +8,27 @@ For a clone-to-first-check path, start with `QUICKSTART.md`, then return here fo
 
 ## Activation
 
-Activate a local PDF production stack before running PDF production commands. The commands below use this machine's Windows stack path:
+Activate the repository workflow before running PDF production commands:
 
 ```powershell
-. D:\pdf-production-stack\activate.ps1
+. .\scripts\activate.ps1
 ```
 
-Replace this path with your own equivalent activation script when cloning elsewhere. It sets a temporary session PATH and environment for:
+The repository is the workflow source of truth. `scripts/activate.ps1` resolves the current clone as `VELLUM_REPO_ROOT`, then dot-sources the external stack activation script only to expose third-party tools and runtime paths for the current PowerShell session.
+
+On this machine the default external stack is:
+
+```text
+D:\pdf-production-stack
+```
+
+Use `-StackRoot` only when the external tools live elsewhere:
+
+```powershell
+. .\scripts\activate.ps1 -StackRoot D:\pdf-production-stack
+```
+
+The external stack provides:
 
 ```text
 MiKTeX / XeLaTeX / latexmk
@@ -27,7 +41,19 @@ Production Python venv
 Playwright Chromium cache
 ```
 
-It does not require a persistent system PATH change.
+The activation script prefers a repository-local `.venv` when present. If `.venv` is not present, it uses the external stack Python venv. It does not require a persistent system PATH change.
+
+Validate the activated repository workflow with:
+
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\scripts\doctor.ps1
+```
+
+Run an end-to-end smoke test with:
+
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\scripts\smoke.ps1
+```
 
 ## Stack Location
 
@@ -205,7 +231,7 @@ figure caption, sources, and image-generation note.
 Run from the repo root:
 
 ```powershell
-. D:\pdf-production-stack\activate.ps1
+. .\scripts\activate.ps1
 ```
 
 HTML to PDF:
@@ -337,7 +363,25 @@ Recreate live artifacts by running the commands in this workflow or `QUICKSTART.
 
 ## Validation
 
-After activation, validate the stack:
+Run the repository doctor first:
+
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\scripts\doctor.ps1
+```
+
+Run the repository smoke test before debugging or tuning workflow changes:
+
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\scripts\smoke.ps1
+```
+
+The smoke test writes generated PDF, QA render, contact sheet, and local registry output under:
+
+```text
+outputs/repo-workflow-smoke/
+```
+
+For focused manual checks after activation, these commands are useful:
 
 ```powershell
 python -c "import fitz, PIL, playwright, pypdf, docx, markdown, bs4, lxml, jinja2, reportlab; print('production python imports ok')"

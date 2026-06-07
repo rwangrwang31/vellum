@@ -2,19 +2,61 @@
 
 Use this guide to verify the local PDF/DOCX workbench after cloning the repository. It covers the committed workflow files only. Runtime outputs and the D-drive production stack are local-machine state.
 
-## 1. Activate the PDF Stack
+## 1. Activate The Repository Workflow
 
 From the repository root:
 
 ```powershell
-. D:\pdf-production-stack\activate.ps1
+. .\scripts\activate.ps1
 ```
 
-This example path is machine-local. Replace it with your own equivalent activation script when cloning elsewhere. It exposes the local MiKTeX/XeLaTeX, Pandoc, Poppler, Ghostscript, LibreOffice, qpdf, production Python venv, and Playwright Chromium paths for the current PowerShell session.
+`vellum` is the workflow source of truth. The repository activation script resolves this clone as `VELLUM_REPO_ROOT`, then uses the external PDF stack only as a provider for MiKTeX/XeLaTeX, Pandoc, Poppler, Ghostscript, LibreOffice, qpdf, Python fallback, and Playwright Chromium.
 
-If this file is missing, use `skills/pdfs/docs/local-opencode-gpt55-install.md` for the minimal Python/JS setup and add optional system tools only when a task needs them.
+On this machine the default external stack is:
 
-## 2. Verify Python Dependencies
+```text
+D:\pdf-production-stack
+```
+
+Use `-StackRoot` only when the external tools live somewhere else:
+
+```powershell
+. .\scripts\activate.ps1 -StackRoot D:\pdf-production-stack
+```
+
+The script prefers a repository-local `.venv` when present. If `.venv` is not present, it uses the external stack Python venv. If the external stack activation script is missing, use `skills/pdfs/docs/local-opencode-gpt55-install.md` for the minimal Python/JS setup and add optional system tools only when a task needs them.
+
+## 2. Run The Repository Doctor
+
+Run the committed workflow contract check from the repository root:
+
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\scripts\doctor.ps1
+```
+
+Expected result on a ready machine:
+
+```text
+PASS: external stack satisfies the Vellum repository PDF workflow contract.
+```
+
+The doctor checks the repository `requirements.txt`, PDF script syntax, JS helper dependencies in `skills/pdfs/js`, expected external commands, Playwright browser cache, and the selected Python interpreter.
+
+## 3. Run The Repository Smoke Test
+
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\scripts\smoke.ps1
+```
+
+The smoke test generates a PDF, renders the first QA page, creates a contact sheet, and writes a local registry row under:
+
+```text
+outputs/repo-workflow-smoke/
+```
+
+That output directory is ignored runtime state.
+
+## 4. Verify Python Dependencies Manually
 
 Install the committed Python dependency set first:
 
@@ -37,7 +79,7 @@ requires a browser install before `html_to_pdf.py` can render HTML to PDF.
 Those are part of the committed dependency set, but they are not required for
 the minimal PDF rendering and non-OCR review profile.
 
-## 3. Verify JavaScript Helpers
+## 5. Verify JavaScript Helpers
 
 From `skills/pdfs/js`:
 
@@ -51,7 +93,7 @@ node --check .\extract_text_pdfjs.mjs
 
 The expected direct dependencies are `pdf-lib` and `pdfjs-dist`.
 
-## 4. Verify PDF Script Syntax
+## 6. Verify PDF Script Syntax
 
 From `skills/pdfs`:
 
@@ -61,7 +103,7 @@ python -c "import ast; from pathlib import Path; files=sorted(Path('scripts').gl
 
 Expected result for the local package is `python_scripts_parsed=22`, including `artifact_registry.py`.
 
-## 5. Create Runtime Folders
+## 7. Create Runtime Folders
 
 The repository intentionally ignores generated inputs and outputs. Create them when needed:
 
@@ -71,7 +113,7 @@ New-Item -ItemType Directory -Force -Path .\data, .\outputs, .\outputs\artifacts
 
 Use `data/` for stable input files and `outputs/` for generated deliverables, QA renders, and local registry rows.
 
-## 6. Render A Sample PDF
+## 8. Render A Sample PDF
 
 After placing any sample PDF at `data/sample.pdf`:
 
@@ -81,7 +123,7 @@ python .\skills\pdfs\scripts\render_pdf.py .\data\sample.pdf --out_dir .\outputs
 
 This verifies the no-Poppler render path used before GPT-5.5 multimodal reading of scanned or low-text pages.
 
-## 7. Generate And QA A PDF
+## 9. Generate And QA A PDF
 
 HTML to PDF:
 
@@ -145,7 +187,7 @@ For generated-image PDFs with exact pixel-size requirements, inspect the saved
 image file itself before accepting the output. Do not rely only on a generation
 tool response that repeats the requested size.
 
-## 9. Optional System Tool Checks
+## 10. Optional System Tool Checks
 
 These commands are only required for workflows that use the corresponding tools:
 
@@ -162,7 +204,7 @@ qpdf --version
 
 MiKTeX may print an update-check warning. That is not a PDF generation failure.
 
-## 10. Committed Tree Review
+## 11. Committed Tree Review
 
 Review the committed tree instead of the live working tree:
 
