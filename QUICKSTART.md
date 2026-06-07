@@ -173,7 +173,7 @@ as point-on-curve alignment, tangent/normal direction, and label clearance.
 In final QA, each focused crop spec should include itemized `checks` and
 `reject_if` conditions so the crop cannot pass on a vague "looks fine" judgment.
 
-## 8. Register A Final Artifact
+## 10. Register A Final Artifact
 
 ```powershell
 python .\skills\pdfs\scripts\artifact_registry.py register .\outputs\task\report.pdf --type application/pdf --description "Final production PDF" --producer "OpenCode GPT-5.5 multimodal plus local PDF stack" --json
@@ -192,7 +192,7 @@ For generated-image PDFs with exact pixel-size requirements, inspect the saved
 image file itself before accepting the output. Do not rely only on a generation
 tool response that repeats the requested size.
 
-## 10. Optional System Tool Checks
+## 11. Optional System Tool Checks
 
 These commands are only required for workflows that use the corresponding tools:
 
@@ -209,7 +209,7 @@ qpdf --version
 
 MiKTeX may print an update-check warning. That is not a PDF generation failure.
 
-## 11. Committed Tree Review
+## 12. Committed Tree Review
 
 Review the committed tree instead of the live working tree:
 

@@ -37,6 +37,22 @@ Read [`LICENSE`](./LICENSE) and [`NOTICE`](./NOTICE) before redistributing, mirr
 - Example artifact registry row at `outputs/artifacts/registry.example.jsonl` without committing generated outputs.
 - Excalidraw/SVG/PNG workflow illustration assets under `assets/`.
 
+## Agent Entry Contract
+
+For automated agents, this repository is not meant to be discovered by first
+scanning the tree or searching broadly for implementation terms. For any PDF,
+LaTeX, XeLaTeX, TikZ, PDF QA, `pdf-production-stack`, `render_pdf`, focused
+crop, artifact-registration, or diagram/formula-heavy task, first read
+[`PDF_PRODUCTION_WORKFLOW.md`](./PDF_PRODUCTION_WORKFLOW.md) and
+[`QUICKSTART.md`](./QUICKSTART.md) from the repository root.
+
+Do not begin by enumerating `skills/`, searching for `.tex` files, running
+`rg latex`, or jumping directly into `skills/pdfs/`. After the entry docs are
+read, activate the repository workflow, run the doctor, and run the smoke test
+before debugging or changing workflow entrypoints. The same rule is mirrored in
+[`AGENTS.md`](./AGENTS.md) for agent runtimes that load repository-local
+instructions.
+
 ## Quick Start
 
 Start with [`QUICKSTART.md`](./QUICKSTART.md) for the clone-to-first-check path.

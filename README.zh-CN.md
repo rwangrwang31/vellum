@@ -37,6 +37,18 @@
 - 提交 `outputs/artifacts/registry.example.jsonl` 作为 artifact registry 行结构示例，不提交生成产物。
 - `assets/` 下保留 Excalidraw/SVG/PNG 工作流图示资产。
 
+## Agent 入口约定
+
+自动化 agent 不应通过先扫描目录树或泛搜实现关键词来发现本仓库工作流。凡是涉及
+PDF、LaTeX、XeLaTeX、TikZ、PDF QA、`pdf-production-stack`、`render_pdf`、
+focused crop、artifact 注册，或图表/公式密集型产物的任务，都必须先从仓库根目录阅读
+[`PDF_PRODUCTION_WORKFLOW.md`](./PDF_PRODUCTION_WORKFLOW.md) 和
+[`QUICKSTART.md`](./QUICKSTART.md)。
+
+不要先枚举 `skills/`、搜索 `.tex` 文件、运行 `rg latex`，或直接进入
+`skills/pdfs/`。读完入口文档后，再激活仓库工作流、运行 doctor，并在调试或修改工作流入口前运行 smoke test。
+同一规则也写入 [`AGENTS.md`](./AGENTS.md)，用于会读取仓库本地 agent 指令的运行时。
+
 ## 快速开始
 
 克隆后优先阅读 [`QUICKSTART.md`](./QUICKSTART.md)。

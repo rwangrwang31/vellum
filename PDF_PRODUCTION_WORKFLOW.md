@@ -6,6 +6,19 @@ Use this when a future OpenCode session needs to discover how to generate produc
 
 For a clone-to-first-check path, start with `QUICKSTART.md`, then return here for the full workflow and command reference.
 
+## Hard Agent Entry Rule
+
+For agent-driven work, this file and `QUICKSTART.md` are the required entry
+documents. Do not begin a PDF, LaTeX, XeLaTeX, TikZ, PDF QA,
+`pdf-production-stack`, `render_pdf`, focused crop, artifact-registration, or
+diagram/formula-heavy task by scanning directories, enumerating `skills/`,
+searching for `.tex` files, running broad searches such as `rg latex`, or
+jumping directly into `skills/pdfs/`.
+
+Read the entry docs first, then activate the repository workflow and run the
+doctor. Run the smoke test before debugging or changing workflow entrypoints.
+Only after that should you inspect implementation files or use targeted search.
+
 ## Activation
 
 Activate the repository workflow before running PDF production commands:

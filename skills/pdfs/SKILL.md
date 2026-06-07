@@ -7,6 +7,18 @@ description: "Reliable, workflow-driven PDF processing: render, verify, operate,
 
 This skill is designed for reliable, workflow-driven PDF work: render -> verify -> operate -> re-render verify.
 
+## Repository entry guard
+
+When using this package inside the Vellum repository, do not treat this file as
+the first workflow entrypoint. If you reached it by scanning directories,
+searching for `.tex` files, running `rg latex`, or jumping directly into
+`skills/pdfs/`, stop and return to the repository root.
+
+Read `PDF_PRODUCTION_WORKFLOW.md` and `QUICKSTART.md` first. Activate the
+repository workflow, run `scripts/doctor.ps1`, and run `scripts/smoke.ps1`
+before debugging or changing workflow entrypoints. The repository is the source
+of truth; `D:\pdf-production-stack` is only a provider of external tools.
+
 ## Before you touch PDFs: should this be DOCX/PPTX instead?
 
 Even if the user asks for a PDF deliverable, the best workflow is often:
@@ -52,7 +64,7 @@ For insertion:
 1. Render to images
 
 ```bash
-python /home/oai/skills/pdfs/scripts/render_pdf.py input.pdf --out_dir /mnt/data/_renders/in --dpi 200
+python ./skills/pdfs/scripts/render_pdf.py ./data/input.pdf --out_dir ./outputs/_renders/in --dpi 200
 ```
 
 2. Inspect PNGs. Tables, figures, and layout are authoritative. For long
@@ -65,7 +77,7 @@ python /home/oai/skills/pdfs/scripts/render_pdf.py input.pdf --out_dir /mnt/data
 4. Re-render and compare.
 
 ```bash
-python /home/oai/skills/pdfs/scripts/compare_renders.py before.pdf after.pdf --out_dir /mnt/data/_diff --dpi 200
+python ./skills/pdfs/scripts/compare_renders.py ./outputs/task/before.pdf ./outputs/task/after.pdf --out_dir ./outputs/_diff --dpi 200
 ```
 
 ---
