@@ -23,7 +23,7 @@
 <path d="M 267.8 205.5 L 328.4 208.5 L 321.6 264.6 L 266.6 260.8 L 269.8 206.8" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <text x="295.0" y="242" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="12" font-weight="700" fill="#111111">PATH</text>
 <text x="245.0" y="302" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="20" font-weight="700" fill="#111111">1. Activate stack</text>
-<text x="245.0" y="333" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="14" font-weight="700" fill="#111111">external stack</text>
+<text x="245.0" y="333" text-anchor="middle" font-family="Segoe Print, Comic Sans MS, Bradley Hand ITC, Virgil, Arial, sans-serif" font-size="14" font-weight="700" fill="#111111">D: pdf-production-stack</text>
 <path d="M 441.0 179.9 L 749.7 179.8 L 748.5 350.7 L 440.2 350.7 L 440.6 181.3" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 442.7 179.3 L 752.0 181.2 L 746.6 353.3 L 440.8 346.9 L 443.3 177.4" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 521.7 197.9 L 572.0 197.2 L 572.2 258.5 L 523.2 260.9 L 524.6 198.4" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
