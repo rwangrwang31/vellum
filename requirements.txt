@@ -4,6 +4,7 @@ beautifulsoup4
 Jinja2
 lxml
 markdown
+matplotlib
 openpyxl
 pdf2image
 pdfplumber
@@ -12,3 +13,4 @@ pypdf
 pypdfium2
 python-docx
 reportlab
+schemdraw
