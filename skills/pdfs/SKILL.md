@@ -17,7 +17,7 @@ searching for `.tex` files, running `rg latex`, or jumping directly into
 Read `PDF_PRODUCTION_WORKFLOW.md` and `QUICKSTART.md` first. Activate the
 repository workflow, run `scripts/doctor.ps1`, and run `scripts/smoke.ps1`
 before debugging or changing workflow entrypoints. The repository is the source
-of truth; `D:\pdf-production-stack` is only a provider of external tools.
+of truth; `<external-stack-root>` is only a provider of external tools.
 
 ## Before you touch PDFs: should this be DOCX/PPTX instead?
 
@@ -70,7 +70,9 @@ python ./skills/pdfs/scripts/render_pdf.py ./data/input.pdf --out_dir ./outputs/
 2. Inspect PNGs. Tables, figures, and layout are authoritative. For long
    documents, create a contact sheet for triage, then inspect focused crops of
    high-risk local regions such as dense diagrams, formulas, tables, captions,
-   generated images, or pages changed during the final iteration.
+   generated images, or pages changed during the final iteration. Keep focused
+   crop outputs in a separate directory from whole-page renders so contact
+   sheets cannot include crop PNGs.
 
 3. Perform the edit, extract, or create operation.
 
@@ -214,10 +216,18 @@ Quick map:
 - No clipped text, overlaps, black squares, or broken glyphs in rendered PNGs.
 - Contact sheets are triage only; diagram-heavy, formula-heavy, or
   layout-sensitive PDFs also need focused crop evidence from the final rendered
-  pages.
+  pages, with crop PNGs kept outside the whole-page render directory.
 - After any layout-sensitive fix, re-render the final PDF, regenerate the
   contact sheet and focused crops, and update the QA manifest or task notes
   before reporting completion.
+- For textbook-style analog electronics circuits, prefer task-local `schemdraw`
+  generators for new or substantially revised standard schematics. Legacy
+  `circuitikz` components should be horizontal or vertical unless a real
+  schematic convention requires a diagonal component.
+- Circuit-heavy PDF crops should explicitly reject slanted or distorted
+  components, label overlap, same-endpoint voltage polarity marks, ambiguous
+  `U_C` versus `U_{CEQ}` measurements, unclear BJT small-signal ports, and
+  inconsistent `\beta i_b` controlled-source direction.
 - Verify in at least one renderer (`pdfium` or `pdftoppm`). For tricky forms, verify in two.
 - Remove intermediate artifacts from the deliverable folder (keep only final PDFs).
 - Avoid Unicode dashes that some renderers mishandle; prefer ASCII `-`.

@@ -24,21 +24,23 @@ Only after that should you inspect implementation files or use targeted search.
 Activate the repository workflow before running PDF production commands:
 
 ```powershell
-. .\scripts\activate.ps1
+. .\scripts\activate.ps1 -StackRoot <external-stack-root>
 ```
 
 The repository is the workflow source of truth. `scripts/activate.ps1` resolves the current clone as `VELLUM_REPO_ROOT`, then dot-sources the external stack activation script only to expose third-party tools and runtime paths for the current PowerShell session.
 
-On this machine the default external stack is:
+Set `PDF_PRODUCTION_STACK` for the current shell or pass `-StackRoot` explicitly.
+The external stack root is machine-local runtime state and should not be
+committed as a concrete absolute path:
 
 ```text
-D:\pdf-production-stack
+<external-stack-root>
 ```
 
-Use `-StackRoot` only when the external tools live elsewhere:
+Explicit activation example:
 
 ```powershell
-. .\scripts\activate.ps1 -StackRoot D:\pdf-production-stack
+. .\scripts\activate.ps1 -StackRoot <external-stack-root>
 ```
 
 The external stack provides:
@@ -70,22 +72,24 @@ pwsh -ExecutionPolicy Bypass -File .\scripts\smoke.ps1
 
 ## Stack Location
 
-Installed stack root on this machine:
+The external stack location is local machine state:
 
 ```text
-D:\pdf-production-stack
+<external-stack-root>
 ```
 
 Operational notes and uninstall instructions, if present at your stack root:
 
 ```text
-D:\pdf-production-stack\install-notes.md
+<external-stack-root>\install-notes.md
 ```
 
-Pre-existing qpdf dependency reused by this machine's stack:
+If a dependency such as `qpdf` is installed outside the external stack, expose it
+through the shell `PATH` or the external stack activation script rather than
+recording a machine-specific absolute path in repository docs:
 
 ```text
-D:\qpdf 12.3.2\bin\qpdf.exe
+<qpdf-bin>\qpdf.exe
 ```
 
 ## Non-OCR Rule
@@ -207,8 +211,8 @@ visual QA.
 Image insertion checks:
 
 - The referenced file exists before PDF generation.
-- The source uses relative paths, not `C:\...`, `D:\...`, or tool temporary
-  directories.
+- The source uses relative paths, not machine-specific absolute paths or tool
+  temporary directories.
 - The final PDF render shows the image on the intended page.
 - The image keeps its intended aspect ratio unless the task explicitly asks for
   a crop.
@@ -280,7 +284,9 @@ python .\skills\pdfs\scripts\create_montage.py .\outputs\task\qa-pages --out .\o
 
 For layout-sensitive pages, create focused crops from the final rendered pages.
 Prefer a structured crop spec so the crop boxes and the visual claim being
-verified are repeatable:
+verified are repeatable. Keep crop outputs in a separate directory from
+whole-page renders so the contact sheet cannot accidentally include old crop
+PNGs:
 
 ```powershell
 @'
@@ -291,7 +297,7 @@ verified are repeatable:
       "name": "figure-2-2",
       "source": "outputs/task/qa-pages/report-page-2.png",
       "box": [120, 180, 980, 720],
-      "output": "outputs/task/qa-pages/figure-2-2-crop.png",
+      "output": "outputs/task/qa-crops/figure-2-2-crop.png",
       "verifies": "caption, labels, and plotted geometry do not overlap",
       "checks": [
         "caption is fully visible and separated from the frame",
@@ -337,7 +343,8 @@ Before reporting a generated PDF complete:
 
 1. Render the final PDF after the last edit. Use a fresh task-specific QA
    directory or the local `render_pdf.py` script with a stable prefix so stale
-   PNGs from an earlier PDF cannot pollute the evidence.
+   PNGs from an earlier PDF cannot pollute the evidence. Keep that directory
+   limited to whole-page renders.
 2. Confirm `pdfinfo` page count, rendered PNG count, and expected page count
    match.
 3. Generate a contact sheet from the final page PNGs and inspect it for page
@@ -345,6 +352,8 @@ Before reporting a generated PDF complete:
    overlaps.
 4. Identify high-risk elements and create focused crop evidence for each one
    that could fail locally while looking acceptable in a contact sheet.
+   Save focused crop output under a separate directory such as
+   `outputs/<task>/qa-crops/`, not inside the whole-page render directory.
 5. For each focused crop, record concrete `checks` and `reject_if` conditions.
    The `verifies` sentence alone is not enough for final QA; it must be backed
    by itemized visual assertions such as label clearance, crop edge clearance,
@@ -392,6 +401,86 @@ completion evidence for diagram-heavy or formula-heavy PDFs. If a layout bug is
 found after delivery, the next fix must re-render the final PDF, regenerate the
 contact sheet and focused crops, update `qa-manifest.json`, and only then
 register the replacement artifact.
+
+## Analog Electronics And Circuit Schematic QA
+
+For standard textbook-style circuit diagrams, especially analog electronics
+amplifier circuits and AC/DC equivalent circuits, treat schematic standardness
+as a required QA invariant.
+
+For new or substantially revised textbook circuit bodies, prefer task-local
+`schemdraw` generators over hand-authored `circuitikz`. The committed
+`requirements.txt` includes `schemdraw` and `matplotlib`; `doctor.ps1` checks
+those dependencies. Generate source-controlled-by-code assets under the task
+output directory, normally:
+
+```text
+outputs/<task>/generate_circuit_assets.py
+outputs/<task>/circuits/<asset>.pdf
+```
+
+Reference generated PDF circuit assets from LaTeX with relative paths:
+
+```latex
+\includegraphics[width=.82\linewidth]{circuits/common-emitter-full.pdf}
+```
+
+For legacy `circuitikz` figures that remain in LaTeX source, draw resistors,
+capacitors, independent sources, controlled sources, and related components on
+horizontal or vertical `to[...]` paths unless the schematic convention
+explicitly requires a diagonal component. If two nodes differ in both x and y,
+route with ordinary wire segments first, then place the component on an
+orthogonal segment.
+
+Circuit contracts for analog amplifier and equivalent-circuit figures:
+
+- Output coupling branches in common-emitter and common-collector diagrams must
+  use a horizontal `C_2` followed by a vertical `R_L` to the reference rail.
+- Emitter bypass branches must draw `C_E` vertically on an emitter-side branch
+  separated from `R_L`, `C_2`, output voltage labels, and load labels.
+- Parallel AC load equivalents must show parallel load branches as vertical
+  elements connected by horizontal top and bottom rails.
+- Collector voltage test leads such as `U_C` must be horizontal from the
+  collector node unless a real schematic convention requires otherwise.
+- Do not mix collector-to-reference and collector-emitter voltage semantics in
+  one ambiguous annotation. `U_C` is collector-to-reference; `U_{CEQ}` is
+  collector-emitter quiescent measurement.
+- Voltage polarity helpers must use explicit distinct `plus` and `minus` node
+  coordinates and fail fast when the coordinates are identical. Do not place
+  `+` and `-` as unrelated labels around one terminal.
+- Small-signal BJT model figures must show distinct `b`, `c`, and `e` ports,
+  `u_{be}` and `u_{ce}` on clear endpoint pairs, a separated `r_{be}` branch,
+  an `i_b` arrow on its own lane, and a controlled current source labeled
+  `\beta i_b` on a separate collector-emitter branch.
+- Controlled-source direction must be consistent across related small-signal
+  figures in one PDF unless the figure explicitly documents a different
+  convention.
+- Full common-emitter schematics with a signal source must reserve separate
+  horizontal space for `u_s`, `R_s`, `u_i`, and `C_1`; avoid stacking source
+  resistance vertically above the source when it crowds input labels.
+- When matching a user-provided textbook reference, match semantic terminal
+  styling as well as geometry, including supply endpoint style and labels such
+  as `+V_{CC}` with `(+12V)` when the reference shows both.
+
+Circuit-specific failure conditions:
+
+- A `to[C]` or `to[R]` path connects coordinates with both x and y changed.
+- `R_L`, `C_2`, `C_E`, `U_C`, `u_o`, or polarity labels overlap or crowd.
+- A voltage marker places `+` and `-` on the same open dot, same endpoint, or
+  visually indistinguishable terminals.
+- One figure labels the same visual endpoint pair as both `U_C` and `U_{CEQ}`.
+- Related small-signal figures reverse `\beta i_b` direction without an
+  explicit convention note.
+- A converted circuit asset is registered without focused crops proving
+  orthogonal components, label clearance, voltage polarity endpoints, and
+  controlled-source direction.
+
+For circuit-heavy PDFs, `qa-manifest.json` must record the dependency decision,
+generated circuit asset list, build command, final render evidence, focused crop
+evidence, and manual inspection result. Focused crop specs must include concrete
+`checks` and `reject_if` items that reject slanted, stretched, rotated, or
+distorted component bodies; label collisions; same-endpoint voltage polarity;
+unclear port labels; and inconsistent controlled-source direction.
 
 ## Current Verified Artifacts
 

@@ -7,21 +7,23 @@ Use this guide to verify the local PDF/DOCX workbench after cloning the reposito
 From the repository root:
 
 ```powershell
-. .\scripts\activate.ps1
+. .\scripts\activate.ps1 -StackRoot <external-stack-root>
 ```
 
 `vellum` is the workflow source of truth. The repository activation script resolves this clone as `VELLUM_REPO_ROOT`, then uses the external PDF stack only as a provider for MiKTeX/XeLaTeX, Pandoc, Poppler, Ghostscript, LibreOffice, qpdf, Python fallback, and Playwright Chromium.
 
-On this machine the default external stack is:
+Set `PDF_PRODUCTION_STACK` for the current shell or pass `-StackRoot` explicitly.
+The external stack root is local runtime state and should not be committed as a
+concrete absolute path:
 
 ```text
-D:\pdf-production-stack
+<external-stack-root>
 ```
 
-Use `-StackRoot` only when the external tools live somewhere else:
+Explicit activation example:
 
 ```powershell
-. .\scripts\activate.ps1 -StackRoot D:\pdf-production-stack
+. .\scripts\activate.ps1 -StackRoot <external-stack-root>
 ```
 
 The script prefers a repository-local `.venv` when present. If `.venv` is not present, it uses the external stack Python venv. If the external stack activation script is missing, use `skills/pdfs/docs/local-opencode-gpt55-install.md` for the minimal Python/JS setup and add optional system tools only when a task needs them.
@@ -158,7 +160,9 @@ python .\skills\pdfs\scripts\create_montage.py .\outputs\task\qa-pages --out .\o
 For dense diagrams, formulas, tables, captions, generated images, or pages
 changed late in the iteration, also save focused crop evidence from the final
 rendered pages. Prefer a saved crop spec so the checked region and visual claim
-are repeatable:
+are repeatable. Keep focused crop outputs in a separate directory such as
+`outputs/<task>/qa-crops/`; do not write crop PNGs into the whole-page render
+directory used by `create_montage.py`.
 
 ```powershell
 python .\skills\pdfs\scripts\crop_rendered_pages.py .\outputs\task\focused-crops.json --base_dir . --strict --json
@@ -172,6 +176,18 @@ math/physics diagrams, record the geometry invariant checked by the crop, such
 as point-on-curve alignment, tangent/normal direction, and label clearance.
 In final QA, each focused crop spec should include itemized `checks` and
 `reject_if` conditions so the crop cannot pass on a vague "looks fine" judgment.
+
+For analog electronics and textbook-style circuit schematics, also inspect
+circuit-specific invariants before registration. Prefer task-local `schemdraw`
+generators for new or substantially revised standard circuits, keep generated
+PDF assets under `outputs/<task>/circuits/`, and include them from LaTeX with
+relative `\includegraphics` paths. Legacy `circuitikz` figures must keep
+resistors, capacitors, sources, and controlled sources on horizontal or vertical
+component paths unless the schematic convention explicitly requires otherwise.
+Focused crops for circuit-heavy PDFs should reject slanted or distorted
+components, `C_2/R_L/C_E` overlap, unclear `U_C` versus `U_{CEQ}` semantics,
+same-endpoint voltage polarity marks, unclear BJT small-signal ports, and
+inconsistent `\beta i_b` controlled-source direction.
 
 ## 10. Register A Final Artifact
 
@@ -231,7 +247,7 @@ outputs/artifacts/registry.jsonl
 outputs/generated-pdf/
 outputs/full-stack-smoke/
 outputs/prod-ocr-workflow/
-D:\pdf-production-stack
+<external-stack-root>
 ```
 
-The repository contains the workflow, scripts, docs, and a registry example. It does not contain generated PDFs, QA renders, private input files, or the external D-drive tool stack.
+The repository contains the workflow, scripts, docs, and a registry example. It does not contain generated PDFs, QA renders, private input files, or the external local tool stack.

@@ -11,7 +11,7 @@ if ([string]::IsNullOrWhiteSpace($StackRoot)) {
         $StackRoot = $env:PDF_PRODUCTION_STACK
     }
     else {
-        $StackRoot = "D:\pdf-production-stack"
+        throw "External PDF stack root is not configured. Pass -StackRoot <path> or set PDF_PRODUCTION_STACK for this shell."
     }
 }
 

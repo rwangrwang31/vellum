@@ -41,7 +41,7 @@ The Vellum repository owns the workflow. The external stack is only a tool
 provider:
 
 ```text
-D:\pdf-production-stack
+<external-stack-root>
 ```
 
 Do not debug or tune workflow behavior from the external stack unless the
